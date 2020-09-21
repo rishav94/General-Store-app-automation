@@ -26,11 +26,11 @@ public class base {
 		prop.load(fis);
 		String device=(String) prop.get("device");
 		File appDir=new File("src");
-		File app=new File(appDir,prop.getProperty("GeneralStorApp"));
+		File app=new File(appDir,prop.getProperty("AppName"));
 		DesiredCapabilities cap= new DesiredCapabilities();
 		//cap.setCapability(MobileCapabilityType.APP, app);
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, device);
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator");
+		//cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator");
 		cap.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
 		cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 14);
 		AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
